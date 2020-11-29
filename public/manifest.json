@@ -1,25 +1,35 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
+  "name": "Hello Extensions",
+  "description" : "Base Level Extension",
+  "version": "1.0",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_title": "Open the popup"
+  },
+  "icons": {
+    "16": "logo192.png",
+    "48": "logo192.png",
+    "128": "logo192.png"
+  },
+  "background": {
+    "scripts": [
+      "./static/js/background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "matches": ["<all_urls>"],
+      "js": ["./static/js/content.js"],
+      "all_frames": false,
+      "run_at": "document_end"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "permissions": [
+    "activeTab"
+  ],
+  "optional_permissions": [
+    "<all_urls>"
+  ]
 }
