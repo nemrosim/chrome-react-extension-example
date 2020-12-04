@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import { ChromeMessage, Sender } from "./types";
 
 import { getCurrentTabUId, getCurrentTabUrl } from "./chrome/utils";
@@ -55,7 +54,6 @@ export const App = () => {
     return (
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
                 <p>URL:</p>
                 <p>
                     {url}
